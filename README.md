@@ -1,4 +1,4 @@
-# Angular Gettin Started
+# Angular Getting Started
 
 This repository contains the code and contents related to Angular Getting Started Course, available on YouTube Channel.
 
@@ -39,6 +39,7 @@ The Course contains, below Topics:
 * Create New Empty Workspace using CLI
 * Create an Workspace with default App
 * Workspace Walkthrough
+* Introduction to mono-repo
 
 # Angular Architecture
 * Architecture
@@ -99,11 +100,21 @@ The Course contains, below Topics:
     - Value Proider
     - factory
 * Creating your First Service
+* providedIn: 'root' | 'any'
 * Component Interaction using Service
 * Dependency Resolution
 * Resolution Modifiers
 * Injection Tokens
 * factories
+
+# RxJs in Angular
+* Introduction
+* Introduction to streams
+* Creating Observables using from operator
+* Subject and BehaviorSubject
+* pipe in RxJs
+* map, filter, tap, fromEvent operators
+* Async pipe
 
 # Angular HTTP and Observables
 * Introduction
@@ -114,9 +125,12 @@ The Course contains, below Topics:
     - delete
     - put
     - request
-* Async pipe
+* shareReplay RxJs operator
+* Handling Error using catchError RxJs operator
+* Centralized ErrorHandling using ErrorHandler
 * Adding header to http request
 * Using HttpInterceptors
+* using APP_INITIALIZER 
 
 # Angular Forms
 
@@ -133,8 +147,48 @@ The Course contains, below Topics:
     - Adding controls dynamically
     - Built-in validations
     - Submitting and reset 
+    - patchValue. setValue
+    - valueChanges form property
+    - Using mergeMap, switchMap, exhaustMap RxJs operators
     - Writing Custom validations
 
 # Angular Modules
 * Creating Angular Modules
 * Sharing component/directives/pipes using Modules
+* 
+
+# Angular Router
+
+* Introduction
+* Setup Router
+* Default Route
+* Wild card route
+* Configure Dynamic Routes
+* Pass data to Route config
+* Using ActivateRoute Service
+* Using pluck RxJs operators
+* Using Router Service for Naviagtion
+* Splitting Route config to feature
+* Nested Routing with Child routes
+* Lazy loading/code splitting 
+* Route Guards
+    - canActivate
+    - canActivateChild
+    - canDeactivate
+    - canLoad
+    - Resolve
+
+# Angular Libraries
+* Creating an Angular Library
+* Building and using it in App
+* Publishing an Library
+* Using an published library
+
+# Anguar CLI 
+* tslint
+* tslint to eslint migration
+* Running tests
+* Creating builds
+* Configure build for multiple configuration
+* ng update
+* Deploying your Angular App 
