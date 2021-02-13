@@ -1,6 +1,6 @@
 # Angular Getting Started
 
-This repository contains the code and contents related to Angular Getting Started Course, available on YouTube Channel.
+This repository contains the code and contents related to Angular Getting Started Course, available on YouTube Channel. Apart from Angular, the course will contain some basics of Git.
 
 The Course contains, below Topics:
 
@@ -9,6 +9,7 @@ The Course contains, below Topics:
 * Installing Nodejs
 * Installing VSCode
 * Why Nodejs/npm
+* Installing Git
 
 # Typescript Basics
 * Installing Typescript
