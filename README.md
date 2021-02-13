@@ -199,4 +199,4 @@ The Course contains, below Topics:
 # PWA
 * Introduction
 * Making your App PWA
-* Deploying and Tesging the PWA
+* Deploying and Testing the PWA
