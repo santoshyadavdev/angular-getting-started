@@ -8,6 +8,7 @@ The Course contains, below Topics:
 # Setup Development Environment
 * Installing Nodejs
 * Installing VSCode
+* Why Nodejs/npm
 
 # Typescript Basics
 * Installing Typescript
@@ -53,15 +54,16 @@ The Course contains, below Topics:
     - Property Binding
     - Event Binding
 * Directives
+    - Introduction
+        - Structural Directives
+        - Attribute Directives
     - Built-in directives
         - *ngIf
         - *ngFor
         - *ngSwitch
         - ngClass
         - ngStyle
-    - Structural Directives
-    - Attribute Directives
-    - Writing Custom Directives
+
 # Component Lifecycle Hooks and Component Communication
 * ngOnInit
 * ngOnChanges
@@ -139,6 +141,7 @@ The Course contains, below Topics:
     - Validating Forms
     - Submit and reset forms
     - Custom Pipe demo with Forms
+    - Writing a custom directive
     - Writing Custom validator
 
 * Reactive Forms
@@ -192,3 +195,8 @@ The Course contains, below Topics:
 * Configure build for multiple configuration
 * ng update
 * Deploying your Angular App 
+
+# PWA
+* Introduction
+* Making your App PWA
+* Deploying and Tesging the PWA
