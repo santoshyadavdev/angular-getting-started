@@ -1,0 +1,13 @@
+"use strict";
+let fname = 'robin';
+let result = fname.includes('b');
+console.log(result);
+let age;
+age = 15;
+let age2 = 25;
+let sum = age + fname;
+console.log(sum);
+let bignum;
+let isValid = false;
+isValid = age > age2;
+console.log(isValid);
