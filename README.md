@@ -12,8 +12,8 @@ The Course contains, below Topics:
 * Installing Git
 
 # Typescript Basics
-* Installing Typescript
 * Introduction
+* Transpilation
 * Why Typescript
 * Data Types
     - Number 
@@ -24,7 +24,6 @@ The Course contains, below Topics:
     - Tuple
     - enum
     - unknown
-* Transpilation
 * Functions
 * Classes
 * Interfaces
