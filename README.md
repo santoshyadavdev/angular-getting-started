@@ -30,7 +30,7 @@ The Course contains, below Topics:
 * Union and Intersection Types
 * Generics
 * Literal Types
-* Typescript Modules
+* ES Modules
 * Typescript Config Files
 
 # Angular 
@@ -41,10 +41,6 @@ The Course contains, below Topics:
 * Create an Workspace with default App
 * Workspace Walkthrough
 * Introduction to mono-repo
-
-# Angular Architecture
-* Architecture
-* Angular Modules
 
 # Template Syntax Basics
 * Component Introduction
@@ -63,6 +59,10 @@ The Course contains, below Topics:
         - *ngSwitch
         - ngClass
         - ngStyle
+
+# Angular Architecture
+* Architecture
+* Angular Modules
 
 # Component Lifecycle Hooks and Component Communication
 * ngOnInit
@@ -158,7 +158,6 @@ The Course contains, below Topics:
 # Angular Modules
 * Creating Angular Modules
 * Sharing component/directives/pipes using Modules
-* 
 
 # Angular Router
 
