@@ -103,10 +103,21 @@ const enum Color {
 
 let color = Color.Blue;
 
-let [num1, num2] = swap(10,20);
+let newNumbers: [firstNumber: number, secondNumber: number];
 
-function swap(num1:number, num2: number) {
-    return [num2, num1];
+newNumbers = swap(10, 20);
+
+newNumbers[0];
+newNumbers[1];
+
+function swap(num1: number, num2: number): [number, number] {
+  return [num2, num1];
 }
 
-console.log(num1, num2);
+type names = string | string[];
+
+let newName : names  = ['a','b']
+
+type taskStatus = 'In Progress' | 'Open' | 'Closed';
+
+let newTask : taskStatus = 'Open';
