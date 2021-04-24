@@ -5,35 +5,35 @@ export interface Address<T> {
   city?: string;
   pin?: number;
   country?: string;
-  data : T;
+  data: T;
 }
 
-let address: Address<number> = {
+let address: Required<Address<number>> = {
   id: 1,
   addr1: "Pune",
+  addr2: "test",
   city: "Pune",
   country: "India",
   pin: 400000,
-  data : 10
+  data: 10,
 };
 
-interface Employees extends Address<string> {
+export interface Employees extends Address<string> {
   id: number;
   name: string;
   department: string;
   salary: number;
   email: string;
   dob: Date;
+  addressId: Pick<Address<string>, "id" | "addr1">;
 }
-
 
 interface Department {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }
 
-
-let empList: Employees[] = [
+let empList: Readonly<Employees[]> = [
   {
     id: 1,
     email: "test1@gmail.com",
@@ -41,7 +41,7 @@ let empList: Employees[] = [
     department: "IT",
     name: "test1",
     salary: 10000,
-    data: '',
+    data: "",
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ let empList: Employees[] = [
     department: "IT",
     name: "test2",
     salary: 15000,
-    data : '',
+    data: "",
   },
   {
     id: 3,
@@ -59,9 +59,20 @@ let empList: Employees[] = [
     department: "IT",
     name: "test3",
     salary: 20000,
-    data : ''
+    data: "",
   },
 ];
+
+let newEmp = {
+  id: 4,
+  email: "test1@gmail.com",
+  dob: new Date("11-Mar-1990"),
+  department: "IT",
+  name: "test3",
+  salary: 20000,
+  data: "",
+};
+empList = [...empList, newEmp];
 
 let findEmp = empList.filter((emp) => emp.salary > 10000);
 
@@ -75,7 +86,7 @@ export interface AddressUtil {
   add(num1: number, num2: number): number;
 }
 
-let testUnion : Employees[] | Department;
+let testUnion: Employees[] | Department;
 
 testUnion = empList;
 

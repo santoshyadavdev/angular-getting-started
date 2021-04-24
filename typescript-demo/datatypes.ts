@@ -1,3 +1,5 @@
+import { Employees } from "./interfaces";
+
 let fname: string;
 
 fname = "test";
@@ -116,8 +118,45 @@ function swap(num1: number, num2: number): [number, number] {
 
 type names = string | string[];
 
-let newName : names  = ['a','b']
+let newName: names = ["a", "b"];
 
-type taskStatus = 'In Progress' | 'Open' | 'Closed';
+type taskStatus = "In Progress" | "Open" | "Closed";
 
-let newTask : taskStatus = 'Open';
+let newTask: taskStatus = "Open";
+
+let adam: Readonly<Employees> = {
+  id: 1,
+  email: "test1@gmail.com",
+  dob: new Date("11-Mar-1986"),
+  department: "IT",
+  name: "test1",
+  salary: 10000,
+  data: "",
+};
+
+let { email: empemail, dob: empdbo } = adam;
+
+console.log(empemail);
+console.log(empdbo);
+
+// adam.salary = 20000;
+
+adam = { ...adam, salary: 20000 };
+
+// let empemail  = adam.email;
+// let dob = adam.dob;
+
+let ramesh: Partial<Employees> = {
+  id: 1,
+  email: "test1@gmail.com",
+  dob: new Date("11-Mar-1986"),
+  department: "IT",
+  name: "test1",
+  // salary: 10000,
+  data: "",
+};
+
+type newEmployee = Pick<Employees, "email" | "dob">;
+
+type newDepartment = Omit<Employees, 'salary' | 'dob'>;
+
