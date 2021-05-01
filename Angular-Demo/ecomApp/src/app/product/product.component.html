@@ -1,0 +1,42 @@
+<!-- interpolation -->
+<h1>{{ title }}</h1>
+
+<!-- property biding -->
+<div [style.color]="'red'" [innerText]="productName" [hidden]="visible"></div>
+
+<!-- event binding -->
+<button (click)="toggle()">Toggle</button>
+
+<button (click)="loadProduct()">Load product</button>
+<button (click)="addProduct()">Add product</button>
+
+<button (click)="toggleTable()">Toggle Table</button>
+
+<!-- <pre>{{products | json}}</pre> -->
+<table *ngIf="products.length > 0">
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Even</th>
+      <th>Odd</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Mfd</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      [ngClass]="e ? 'even' : 'odd'"
+      *ngFor="let product of products; let i = index; let e = even; let o = odd; trackBy: trackById"
+    >
+      <td>{{ i + 1 }}</td>
+      <td>{{ e }}</td>
+      <td>{{ o }}</td>
+      <td>{{ product.id }}</td>
+      <td [innerText]="product.name"></td>
+      <td>{{ product.mfd }}</td>
+      <td>{{ product.price }}</td>
+    </tr>
+  </tbody>
+</table>
