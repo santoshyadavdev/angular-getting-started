@@ -1,8 +1,6 @@
 <h1>Hello World!</h1>
 
-
-
-<div [ngSwitch]="role">
+<!-- <div [ngSwitch]="role">
   <div *ngSwitchCase="'Admin'">
     <ecom-product></ecom-product>
   </div>
@@ -12,4 +10,13 @@
   <div *ngSwitchDefault>
     You don't have access to the application!
   </div>
-</div>
+</div> -->
+
+<ecom-container>
+  <h1>This is a container component</h1>
+  <ecom-product></ecom-product>
+  <ecom-order></ecom-order>
+  <ecom-order></ecom-order>
+  <ecom-order></ecom-order>
+  <ecom-order></ecom-order>
+</ecom-container>
