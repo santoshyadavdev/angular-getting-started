@@ -1,0 +1,35 @@
+<h1>{{title}}</h1>
+
+<h2>Total Price : {{productSum}}</h2>
+
+<table class="table" *ngIf="products.length > 0">
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Even</th>
+      <th>Odd</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Mfd</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      [ngClass]="e ? 'even' : 'odd'"
+      *ngFor="let product of products; let i = index; let e = even; let o = odd; trackBy: trackById"
+    >
+      <td>{{ i + 1 }}</td>
+      <td>{{ e }}</td>
+      <td>{{ o }}</td>
+      <td>{{ product.id }}</td>
+      <td [innerText]="product.name"></td>
+      <td>{{ product.mfd }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <button class="btn btn-success" (click)="select(product)">Select</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
