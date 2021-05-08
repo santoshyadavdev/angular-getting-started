@@ -7,6 +7,7 @@ import {
   OnChanges,
   SimpleChanges,
   ChangeDetectionStrategy,
+  OnDestroy,
 } from '@angular/core';
 import { Product } from '../product';
 
@@ -16,7 +17,7 @@ import { Product } from '../product';
   styleUrls: ['./product-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductListComponent implements OnInit, OnChanges {
+export class ProductListComponent implements OnInit, OnChanges, OnDestroy {
   @Input() products: Product[] = [];
 
   @Input() title: string = '';
@@ -43,5 +44,9 @@ export class ProductListComponent implements OnInit, OnChanges {
 
   trackById(i: number, data: Product) {
     return data.id;
+  }
+
+  ngOnDestroy() {
+    console.log('this component is destroyed');
   }
 }

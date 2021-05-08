@@ -1,4 +1,16 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+  ViewEncapsulation,
+} from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Product } from './product';
 
 @Component({
@@ -6,8 +18,13 @@ import { Product } from './product';
   selector: 'ecom-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
+  encapsulation : ViewEncapsulation.None,
+  host: {
+    'class' : 'ecom-product'
+  }
 })
-export class ProductComponent implements OnInit, DoCheck {
+export class ProductComponent
+  implements OnInit, DoCheck, AfterViewInit, AfterViewChecked {
   title = 'Product Information';
 
   productName = 'One Plus 9';
@@ -21,9 +38,23 @@ export class ProductComponent implements OnInit, DoCheck {
   productList: Product[] = [];
 
   header = 'Product List';
+
+  previousValue = '';
+
+  currentValue = '';
+
+  @ViewChild(HeaderComponent)
+  headerComponent!: HeaderComponent;
+
+  @ViewChildren(HeaderComponent)
+  headerChildrenComponent!: QueryList<HeaderComponent>;
+
+  @ViewChild('apiError', { static: true }) errorDiv!: ElementRef<any>;
   constructor() {}
 
   ngOnInit() {
+    console.log(this.headerComponent);
+    console.log(this.errorDiv);
     this.productList = [
       { id: 1, name: 'Iphone X', mfd: new Date('1-Jan-2021'), price: 50000 },
       { id: 2, name: 'one plus 8', mfd: new Date('1-Jan-2019'), price: 40000 },
@@ -35,8 +66,22 @@ export class ProductComponent implements OnInit, DoCheck {
     // console.log('do check is called');
   }
 
+  ngAfterViewInit(): void {
+    this.previousValue = this.headerComponent.header;
+    this.headerChildrenComponent.last.header = 'This is last Header Component';
+  }
+
+  ngAfterViewChecked(): void {
+    this.currentValue = 'New Header';
+    if (this.previousValue != this.currentValue) {
+      this.headerComponent.header = this.currentValue;
+    }
+  }
+
   toggle() {
     this.visible = !this.visible;
+    this.errorDiv.nativeElement.innerText =
+      'There is an error making API call, please retry.';
   }
 
   toggleTable() {
