@@ -18,15 +18,15 @@
   <tbody>
     <tr
       [ngClass]="e ? 'even' : 'odd'"
-      *ngFor="let product of products; let i = index; let e = even; let o = odd; trackBy: trackById"
+      *ngFor="let product of products ; let i = index; let e = even; let o = odd; trackBy: trackById;"
     >
-      <td>{{ i + 1 }}</td>
+      <td>{{ i + 1 | percent}}</td>
       <td>{{ e }}</td>
       <td>{{ o }}</td>
       <td>{{ product.id }}</td>
-      <td [innerText]="product.name"></td>
-      <td>{{ product.mfd }}</td>
-      <td>{{ product.price }}</td>
+      <td [innerText]="product.name | titlecase"></td>
+      <td>{{ product.mfd | date: 'medium' | uppercase }}</td>
+      <td>{{ product.price | currency: 'INR' }}</td>
       <td>
         <button class="btn btn-success" (click)="select(product)">Select</button>
       </td>

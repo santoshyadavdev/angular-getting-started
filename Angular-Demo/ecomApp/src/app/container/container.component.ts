@@ -13,6 +13,9 @@ import { ProductComponent } from '../product/product.component';
   selector: 'ecom-container',
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.scss'],
+  host : {
+    'class' : 'ecom-container'
+  }
 })
 export class ContainerComponent implements OnInit, AfterContentInit {
   @ContentChild(ProductComponent) productComponent!: ProductComponent;

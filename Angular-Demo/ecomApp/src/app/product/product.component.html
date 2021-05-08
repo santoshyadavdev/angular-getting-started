@@ -1,6 +1,13 @@
 <!-- interpolation -->
 <h1>{{ title }}</h1>
 
+<div #apiError></div>
+
+<ecom-header></ecom-header>
+<ecom-header></ecom-header>
+<ecom-header></ecom-header>
+<ecom-header></ecom-header>
+
 <!-- property biding -->
 <div [style.color]="'red'" [innerText]="productName" [hidden]="visible"></div>
 
@@ -17,8 +24,14 @@
 </pre>
 
 <!-- <pre>{{products | json}}</pre> -->
-<ecom-product-list
-  [title]="header"
-  [products]="productList"
-  (selectProduct)="deleteProduct($event)"
-></ecom-product-list>
+<ng-container *ngIf="hidden; else hiddenTable">
+  <ecom-product-list
+    [title]="header"
+    [products]="productList"
+    (selectProduct)="deleteProduct($event)"
+  ></ecom-product-list>
+</ng-container>
+
+<ng-template #hiddenTable>
+  <h1>This table is hidden click on toggle to see the content</h1>
+</ng-template>

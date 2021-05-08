@@ -2,3 +2,12 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+h1 {
+  background-color: tomato;
+  color: white;
+}
+
+.ecom-product h1 {
+  background-color: blue;
+  color: white;
+}
