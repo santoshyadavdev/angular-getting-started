@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Util } from './employee';
 
 @Component({
   selector: 'ecom-comment',
@@ -10,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
   comments = [1, 2, 3];
+
+  // util = new Util();
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.util.add(10,5);
+  }
 }

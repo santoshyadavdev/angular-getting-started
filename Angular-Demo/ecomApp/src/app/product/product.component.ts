@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Product } from './product';
+import { ProductService } from './services/product.service';
 
 @Component({
   // interpolation: ['[', ']'],
@@ -50,16 +51,13 @@ export class ProductComponent
   headerChildrenComponent!: QueryList<HeaderComponent>;
 
   @ViewChild('apiError', { static: true }) errorDiv!: ElementRef<any>;
-  constructor() {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
+    // this.productService.add(10,5);
     console.log(this.headerComponent);
     console.log(this.errorDiv);
-    this.productList = [
-      { id: 1, name: 'Iphone X', mfd: new Date('1-Jan-2021'), price: 50000 },
-      { id: 2, name: 'one plus 8', mfd: new Date('1-Jan-2019'), price: 40000 },
-      { id: 3, name: 'Samsung', mfd: new Date('1-Jan-2018'), price: 30000 },
-    ];
+    this.productList = this.productService.getProducts();
   }
 
   ngDoCheck() {
