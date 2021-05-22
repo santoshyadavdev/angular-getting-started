@@ -10,6 +10,7 @@ import { OrderComponent } from './order/order.component';
 import { ContainerComponent } from './container/container.component';
 import { HeaderComponent } from './header/header.component';
 import { CommentComponent } from './comment/comment.component';
+import { ProductService } from './product/services/product.service';
 
 @NgModule({
   declarations: [

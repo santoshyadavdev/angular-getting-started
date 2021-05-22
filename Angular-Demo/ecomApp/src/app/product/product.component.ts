@@ -5,12 +5,15 @@ import {
   DoCheck,
   ElementRef,
   OnInit,
+  Optional,
   QueryList,
+  Self,
   ViewChild,
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
+import { LoggerService } from '../logger/logger.service';
 import { Product } from './product';
 import { ProductService } from './services/product.service';
 
@@ -19,13 +22,15 @@ import { ProductService } from './services/product.service';
   selector: 'ecom-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
-  encapsulation : ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None,
   host: {
-    'class' : 'ecom-product'
-  }
+    class: 'ecom-product',
+  },
+  // providers: [ProductService],
 })
 export class ProductComponent
-  implements OnInit, DoCheck, AfterViewInit, AfterViewChecked {
+  implements OnInit, DoCheck, AfterViewInit, AfterViewChecked
+{
   title = 'Product Information';
 
   productName = 'One Plus 9';
@@ -51,10 +56,14 @@ export class ProductComponent
   headerChildrenComponent!: QueryList<HeaderComponent>;
 
   @ViewChild('apiError', { static: true }) errorDiv!: ElementRef<any>;
-  constructor(private productService: ProductService) {}
+  constructor(
+  private productService: ProductService,
+    @Optional() private logService: LoggerService
+  ) {}
 
   ngOnInit() {
     // this.productService.add(10,5);
+    // this.logService? this.logService.log('test')
     console.log(this.headerComponent);
     console.log(this.errorDiv);
     this.productList = this.productService.getProducts();

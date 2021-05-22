@@ -3,11 +3,13 @@ import {
   Component,
   ContentChild,
   ContentChildren,
+  Host,
   OnInit,
   QueryList,
 } from '@angular/core';
 import { OrderComponent } from '../order/order.component';
 import { ProductComponent } from '../product/product.component';
+import { ProductService } from '../product/services/product.service';
 
 @Component({
   selector: 'ecom-container',
@@ -15,15 +17,15 @@ import { ProductComponent } from '../product/product.component';
   styleUrls: ['./container.component.scss'],
   host : {
     'class' : 'ecom-container'
-  }
+  },
+  providers: [ProductService]
 })
 export class ContainerComponent implements OnInit, AfterContentInit {
   @ContentChild(ProductComponent) productComponent!: ProductComponent;
 
   @ContentChildren(OrderComponent) orderComponent!: QueryList<OrderComponent>;
 
-
-  constructor() {}
+  constructor(@Host() private productService: ProductService) {}
 
   ngOnInit(): void {
     console.log(this.productComponent);
