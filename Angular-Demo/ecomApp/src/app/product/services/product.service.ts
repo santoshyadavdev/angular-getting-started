@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Product } from '../product';
 import { NewProductService } from './new-product.service';
+import { APPCONFIG } from '../../injection-token/app.config.token';
+import { AppConfig } from '../../injection-token/app.config';
 
 @Injectable({
   providedIn: 'root',
-  useExisting : NewProductService
+  useExisting: NewProductService,
 })
 export class ProductService {
   products: Product[] = [
@@ -28,4 +30,5 @@ export class ProductService {
   getProducts(): Product[] {
     return this.products;
   }
+
 }

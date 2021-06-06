@@ -49,6 +49,7 @@ export class ProductComponent
 
   currentValue = '';
 
+
   @ViewChild(HeaderComponent)
   headerComponent!: HeaderComponent;
 
