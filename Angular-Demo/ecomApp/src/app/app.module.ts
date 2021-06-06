@@ -11,6 +11,7 @@ import { ContainerComponent } from './container/container.component';
 import { HeaderComponent } from './header/header.component';
 import { CommentComponent } from './comment/comment.component';
 import { ProductService } from './product/services/product.service';
+import { APPCONFIG, CONFIGVALUES } from './injection-token/app.config.token';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,12 @@ import { ProductService } from './product/services/product.service';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : APPCONFIG,
+      useValue : CONFIGVALUES
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
