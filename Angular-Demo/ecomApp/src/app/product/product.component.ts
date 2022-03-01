@@ -4,6 +4,7 @@ import {
   Component,
   DoCheck,
   ElementRef,
+  OnDestroy,
   OnInit,
   Optional,
   QueryList,
@@ -12,9 +13,11 @@ import {
   ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
 import { LoggerService } from '../logger/logger.service';
 import { Product } from './product';
+import { ProductServiceRxJs } from './rxjx-demo/rxjs-demo';
 import { ProductService } from './services/product.service';
 
 @Component({
@@ -29,7 +32,7 @@ import { ProductService } from './services/product.service';
   // providers: [ProductService],
 })
 export class ProductComponent
-  implements OnInit, DoCheck, AfterViewInit, AfterViewChecked
+  implements OnInit, DoCheck, AfterViewInit, AfterViewChecked, OnDestroy
 {
   title = 'Product Information';
 
@@ -49,16 +52,17 @@ export class ProductComponent
 
   currentValue = '';
 
-
   @ViewChild(HeaderComponent)
   headerComponent!: HeaderComponent;
 
   @ViewChildren(HeaderComponent)
   headerChildrenComponent!: QueryList<HeaderComponent>;
 
+  subscription!: Subscription;
+
   @ViewChild('apiError', { static: true }) errorDiv!: ElementRef<any>;
   constructor(
-  private productService: ProductService,
+    private productService: ProductServiceRxJs,
     @Optional() private logService: LoggerService
   ) {}
 
@@ -67,7 +71,10 @@ export class ProductComponent
     // this.logService? this.logService.log('test')
     console.log(this.headerComponent);
     console.log(this.errorDiv);
-    this.productList = this.productService.getProducts();
+    // this.productList =
+    this.subscription = this.productService
+      .getProducts()
+      .subscribe((data) => console.log(data));
   }
 
   ngDoCheck() {
@@ -119,5 +126,9 @@ export class ProductComponent
 
   deleteProduct(product: Product) {
     this.selectedProduct = product;
+  }
+
+  ngOnDestroy() {
+      this.subscription?.unsubscribe();
   }
 }
